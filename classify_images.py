@@ -37,6 +37,8 @@ import pandas as pd
 import glob
 import urllib
 import tempfile
+import torch
+import torch.nn as nn
 
 # pip install progressbar2, not progressbar
 import progressbar
@@ -50,7 +52,7 @@ import progressbar
 # little path management.  This also implicitly defers PyTorch imports.
 
 # Directory to which you sync'd this repo.
-api_root = r'/home/coyote/git/speciesclassification'
+api_root = $WORK+ r'/Giraffe/speciesclassification'
 
 # If not None, pre-pended to filenames.  Most useful when filenames are coming from 
 # a .csv file.
@@ -68,10 +70,10 @@ images_to_classify_base = None
 # images_to_classify = r'/data/species-classification/elephant.jpg'
 # images_to_classify = [r'/data/species-classification/elephant.jpg']
 # images_to_classify = 'image_list.csv'
-images_to_classify = r'/data/species-classification/images/sample_images.2019.12.28'
+images_to_classify = $WORK +r'/Giraffe/species-classification-dataset'
 
 # Classification results will be written here
-classification_output_file = '/data/species-classification/classification_output.csv'
+classification_output_file =  $WORK +'/Giraffe/species_classification_output.csv'
 
 # Path to taxa.csv, for latin --> common mapping
 #
@@ -109,7 +111,7 @@ image_sizes = [560, 560]
 mak_k_to_print = 3
 debug_max_images = -1
 
-
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 #%% Path setup to import the classification code
 
 if (not api_root.lower() in map(str.lower,sys.path)):
