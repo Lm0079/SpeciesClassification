@@ -70,10 +70,10 @@ images_to_classify_base = None
 # images_to_classify = r'/data/species-classification/elephant.jpg'
 # images_to_classify = [r'/data/species-classification/elephant.jpg']
 # images_to_classify = 'image_list.csv'
-images_to_classify =  r'/user/work/gh18931/gzgc.coco/images'
+images_to_classify =  r'/user/work/gh18931/diss/gzgc.coco/images'
 
 # Classification results will be written here
-classification_output_file =  r'/user/work/gh18931/giraffe_identification/great_dataset_classification_output.csv'
+classification_output_file =  r'/user/work/gh18931/diss/giraffe_identification/great_dataset_classification_output.csv'
 
 # Path to taxa.csv, for latin --> common mapping
 #
@@ -114,19 +114,15 @@ debug_max_images = -1
 #%% Path setup to import the classification code
 
 if (not api_root.lower() in map(str.lower,sys.path)):
-    print("a")
     print('Adding {} to the python path'.format(api_root))
     sys.path.insert(0,api_root)
-
 for s in subdirs_to_import:
     if (not s.lower() in map(str.lower,sys.path)):
         import_path = os.path.join(api_root,s)
         print('Adding {} to the python path'.format(import_path))
         sys.path.insert(0,import_path)    
 
-
 #%% Import classification modules
-print("Importing")
 import api as speciesapi
 
 
