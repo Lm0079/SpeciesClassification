@@ -52,7 +52,7 @@ import progressbar
 # little path management.  This also implicitly defers PyTorch imports.
 
 # Directory to which you sync'd this repo.
-api_root =  r'/user/work/gh18931/giraffe_identification/SpeciesClassification'
+api_root =  r'/user/work/gh18931/diss/giraffe_identification/modules/SpeciesClassification'
 
 # If not None, pre-pended to filenames.  Most useful when filenames are coming from 
 # a .csv file.
@@ -70,22 +70,22 @@ images_to_classify_base = None
 # images_to_classify = r'/data/species-classification/elephant.jpg'
 # images_to_classify = [r'/data/species-classification/elephant.jpg']
 # images_to_classify = 'image_list.csv'
-images_to_classify =  r'/user/work/gh18931/diss/gzgc.coco/images'
+images_to_classify = os.environ["IMAGES"]
 
 # Classification results will be written here
-classification_output_file =  r'/user/work/gh18931/diss/giraffe_identification/great_dataset_classification_output.csv'
+classification_output_file =  os.environ["OUTPUT"]
 
 # Path to taxa.csv, for latin --> common mapping
 #
 # Set to None to disable latin --> common mapping
 #
 # If a URL, will be automatically downloaded to a temp folder.
-taxonomy_path = 'https://lilablobssc.blob.core.windows.net/models/species_classification/species_classification.2019.12.00.taxa.csv'
+taxonomy_path = r'/user/work/gh18931/diss/giraffe_identification/models/species_classification.2019.12.00.taxa.csv'
 
 # Path to our classification model file.
 #
 # If a URL, will be automatically downloaded to a temp folder.
-classification_model_path = 'https://lilablobssc.blob.core.windows.net/models/species_classification/species_classification.2019.12.00.pytorch'
+classification_model_path = r'/user/work/gh18931/diss/giraffe_identification/models/species_classification.2019.12.00.pytorch'
 
 # Detection (i.e., bounding box generation) is optional; set to None 
 # to disable detection
