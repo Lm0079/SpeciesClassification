@@ -80,12 +80,12 @@ classification_output_file =  os.environ["OUTPUT"]
 # Set to None to disable latin --> common mapping
 #
 # If a URL, will be automatically downloaded to a temp folder.
-taxonomy_path = r'/user/work/gh18931/diss/giraffe_identification/models/species_classification.2019.12.00.taxa.csv'
+taxonomy_path = 'https://lilablobssc.blob.core.windows.net/models/species_classification/species_classification.2019.12.00.taxa.csv'
 
 # Path to our classification model file.
 #
 # If a URL, will be automatically downloaded to a temp folder.
-classification_model_path = r'/user/work/gh18931/diss/giraffe_identification/models/species_classification.2019.12.00.pytorch'
+classification_model_path = 'https://lilablobssc.blob.core.windows.net/models/species_classification/species_classification.2019.12.00.pytorch'
 
 # Detection (i.e., bounding box generation) is optional; set to None 
 # to disable detection
